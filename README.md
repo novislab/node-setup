@@ -26,6 +26,11 @@ bash install.sh
 | **Repocket** | Official spiritLHLS one-liner | Email + password embedded |
 | **MystNodes (Mysterium)** | Official Mysterium install script | MystNodes API key embedded |
 
+The installer also:
+
+- Updates all system packages first (`apt-get update && apt-get upgrade`).
+- Installs **Docker** automatically using the official [get.docker.com](https://get.docker.com) script, because TraffMonetizer and Repocket run as containers.
+
 MystNodes is claimed automatically via the CLI (`myst cli mmn <api-key>`), so you do **not** need to visit `http://<ip>:4449` to link the node.
 
 ## Credentials
