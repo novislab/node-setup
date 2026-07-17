@@ -24,28 +24,25 @@ bash install.sh
 |------|--------|-----------------|
 | **TraffMonetizer** | Official spiritLHLS one-liner | Token embedded |
 | **Repocket** | Official spiritLHLS one-liner | Email + password embedded |
-| **MystNodes (Mysterium)** | Official Mysterium install script | MystNodes API key embedded |
+| **MystNodes (Mysterium)** | Official Mysterium install script | Manual via NodeUI port 4449 |
 
 The installer also:
 
 - Updates all system packages first (`apt-get update && apt-get upgrade`).
 - Installs **Docker** automatically using the official [get.docker.com](https://get.docker.com) script, because TraffMonetizer and Repocket run as containers.
 
-MystNodes is claimed automatically via the CLI (`myst cli mmn <api-key>`), so you do **not** need to visit `http://<ip>:4449` to link the node.
+MystNodes is installed via the official Mysterium script, but **must be finished manually** by visiting the NodeUI at `http://<ip>:4449` to set your password and link/claim the node.
 
 ## Credentials
 
 Credentials are stored at the top of `install.sh` as variables. You can override them without editing the file:
 
 ```bash
-MYST_API_KEY=your-mystnodes-key \
 TRAFFMONETIZER_TOKEN=your-token \
 REPOCKET_EMAIL=your-email \
 REPOCKET_PASSWORD=your-password \
 bash install.sh
 ```
-
-Get your MystNodes API key from: https://my.mystnodes.com/me
 
 ## Requirements
 
@@ -68,12 +65,6 @@ Check service status after installation:
 ```bash
 sudo systemctl status mysterium-node
 sudo journalctl -u mysterium-node -f
-```
-
-If MystNodes was not claimed automatically, claim it manually:
-
-```bash
-sudo myst cli mmn <your-mystnodes-api-key>
 ```
 
 ## Disclaimer
